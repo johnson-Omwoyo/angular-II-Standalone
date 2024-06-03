@@ -1,0 +1,67 @@
+<div class="container row align-items-center justify-content-center " style="margin:10% auto;">
+
+    <div class="col-sm-8 col-lg-4 col-md-6" style="background-color:#f3f3f3; border-radius: 20px;">
+        <form [formGroup]="registerForm" class="text-center" (ngSubmit)="onSubmit()">
+            <h2>Register</h2>
+
+
+
+            <div class="d-flex form-group">
+                <label for="Firstname" class="label">Firstname:</label>
+                <input type="text" class="form-control input" formControlName="firstName" placeholder="Firstname"
+                    [ngClass]="{'invalid':isInvalid('firstName'),'valid':isValid('firstName')}">
+            </div>
+            <div class="d-flex form-group">
+                <label for="lastname" class="label">Lastname:</label>
+                <input type="text" class="form-control input" formControlName="lastName" placeholder="lastname"
+                    [ngClass]="{'invalid':isInvalid('lastName'),'valid':isValid('lastName')}">
+            </div>
+            <div class="d-flex form-group">
+                <label for="DOB" class="label">DateOfBirth</label>
+                <input type="date" class="form-control input" formControlName="dateOfBirth" placeholder="DateOfBirth">
+            </div>
+            <div class="d-flex form-group">
+                <label for="email" class="label">Email:</label>
+                <input type="text" class="form-control input" formControlName="email" placeholder="Email"
+                    [ngClass]="{'invalid':isInvalid('email'),'valid':isValid('email')}">
+            </div>
+            <div class="d-flex form-group">
+                <label for="password" class="label">Password:</label>
+                <input type="password" class="form-control input" formControlName="password" placeholder="Password"
+                    [ngClass]="{'invalid':isInvalid('password'),'valid':isValid('password')}">
+            </div>
+            <div class="d-flex form-group">
+                <label for="cofirmPassword" class="label">Confirm Password:</label>
+                <input type="password" class="form-control input" formControlName="confirmPassword"
+                    placeholder="Confirm Password"
+                    [ngClass]="{'invalid':isInvalid('confirmPassword'),'valid':isValid('confirmPassword')}">
+            </div>
+
+
+            <button type="submit" class="btn btn-success submit-btn" [disabled]="!registerForm.valid">Register</button>
+
+
+            <div style="margin:10px">
+
+                <a href="/login">Already have account</a>
+            </div>
+        </form>
+
+        <div class="position-fixed top-97 start-50 ">
+
+            <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" id="toastElement">
+                <div class="toast-header">
+
+                    <strong>Failed to Register</strong>
+
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+                <div class="toast-body">
+                    {{errorMessage}}
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
